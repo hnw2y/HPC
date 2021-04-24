@@ -1,2 +1,2 @@
 # HPC
-HPC Dockerfile and .yaml files for research project
+HPC Dockerfile and .yaml files for cloud computing research project
