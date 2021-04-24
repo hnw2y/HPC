@@ -19,3 +19,13 @@ START UP PROCESS:
 	run ssh-keygen as jovyan in /home/jovyan/.ssh directory
 	copy id_rsa.pub to authorized_keys
 	ssh between all the pods to to add them to known hosts
+	
+To build the singularity cntainers: 
+	
+	singularity build mpitest.sif mpitest.def
+	singularity build gromacs.sif gromacs.def
+
+To switch to jovyan user: 
+	
+	su joyvan
+	/bin/bash
