@@ -71,9 +71,6 @@ RUN chmod +x /usr/local/bin/start_services.sh
 RUN useradd -m jovyan
 
 # Make current host key auto-login via known_hosts
-RUN echo -n "* " >> /home/jovyan/.ssh/known_hosts
-RUN cat /etc/ssh/ssh_host_ecdsa_key.pub >> /home/jovyan/.ssh/known_hosts
-RUN chmod 600 /home/jovyan/.ssh/known_hosts
 RUN chown -R jovyan /home/jovyan/.ssh
 
 CMD /usr/local/bin/start_services.sh
