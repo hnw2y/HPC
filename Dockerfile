@@ -70,7 +70,4 @@ RUN chmod +x /usr/local/bin/start_services.sh
 # adds user jovyan and switches to that user
 RUN useradd -m jovyan
 
-# Make current host key auto-login via known_hosts
-RUN chown -R jovyan /home/jovyan/.ssh
-
 CMD /usr/local/bin/start_services.sh
