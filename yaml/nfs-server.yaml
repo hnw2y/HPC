@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-vol-claim
+spec:
+#  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nfs-server
+spec:
+  volumes:
+    - name: nfs-vol-storage
+      persistentVolumeClaim:
+        claimName: nfs-vol-claim
+  containers:
+  - name: nfs-server-container
+    image: jcwijaya/nfs-server:autobuild
+    ports:
+      - name: nfs
+        containerPort: 2049
+      - name: mountd
+        containerPort: 20048
+      - name: rpcbind
+        containerPort: 111
+    securityContext:
+      privileged: true
+    volumeMounts:
+      - mountPath: "/mnt/volumes"
+        name: nfs-vol-storage
