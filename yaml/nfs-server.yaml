@@ -22,6 +22,7 @@ spec:
   containers:
   - name: nfs-server-container
     image: jcwijaya/nfs-server:autobuild
+    imagePullPolicy: Always
     ports:
       - name: nfs
         containerPort: 2049
