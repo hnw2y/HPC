@@ -7,5 +7,6 @@ service nfs-common start
 service munge start
 service slurmd start
 service ssh start
+exec /usr/sbin/sshd -D
 sleep 100
 exec su - jovyan -c "sleep infinity"
