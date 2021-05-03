@@ -38,7 +38,7 @@ RUN echo "Set disable_coredump false" >> /etc/sudo.conf
 COPY slurm.conf /etc/slurm-llnl/slurm.conf
 RUN chmod 777 /var/spool
 
-COPY munge.key /etc/mungue/
+COPY munge.key /etc/munge/
 RUN chown munge /etc/munge/munge.key
 
 #------------------------------------------------------
